@@ -37,28 +37,34 @@ export default function CategoryPage({
           <div className="px-4 py-6 sm:px-0">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {products.map((product) => (
+                <div className="bg-white p-5 overflow-hidden shadow flex flex-col justify-between rounded-lg">
                 <Link
                   to={`/${product.path}-page`}
                   state={{ id: product.id }}
                   key={product.id}
-                  className="bg-white p-5  overflow-hidden shadow rounded-lg"
                 >
-                  <div className="flex items-center justify-center  rounded-md">
+                  <div className=" items-center  rounded-md">
                     <img
                       src={product.image}
                       alt={product.name}
                       className="w-64px h-64px object-cover"
                     />
                   </div>
-                  <div className="  mt-4">
+                  <div className="mt-4">
                     <h3 className="text-lg font-medium text-gray-900">
                       {product.name}
                     </h3>
                     <p className="mt-1 text-xl font-semibold text-indigo-600">
                       {product.price} ₽
                     </p>
+                    
                   </div>
+                  
                 </Link>
+                <button className="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+                Избранное
+              </button>
+              </div>
               ))}
             </div>
           </div>
